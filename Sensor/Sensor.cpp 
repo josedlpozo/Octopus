@@ -1,0 +1,6 @@
+#include "Sensor.h"
+#include <avr/pgmspace.h>
+
+/* Constructor de la clase*/
+void Sensor::constructor() {
+}
