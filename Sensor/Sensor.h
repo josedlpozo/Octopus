@@ -13,8 +13,8 @@
   Inclusion de libraries necesarias.
 
 =========================================================================*/
-	#ifndef _ADAFRUIT_SENSOR_H
-	#define _ADAFRUIT_SENSOR_H
+	#ifndef _SENSOR_H
+	#define _SENSOR_H
 	#include "Arduino.h"
 	#include "Print.h"
 
