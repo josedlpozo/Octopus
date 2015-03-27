@@ -30,13 +30,12 @@
   Enumerado de registros. 
 
 =========================================================================*/
-    typedef enum
-    {
-      PCF8591_REGISTER_A0                        = 0x00,
-      PCF8591_REGISTER_A1                        = 0x01,
-      PCF8591_REGISTER_A2                        = 0x02,
-      PCF8591_REGISTER_A3                        = 0x03,
-    } PCF8591_Registers_t;
+    
+    #define  PCF8591_REGISTER_A0                   0x00
+    #define  PCF8591_REGISTER_A1                   0x01
+    #define  PCF8591_REGISTER_A2                   0x02
+    #define  PCF8591_REGISTER_A3                   0x03
+    
 
 /*=========================================================================
 

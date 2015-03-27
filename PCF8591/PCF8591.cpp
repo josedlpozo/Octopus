@@ -14,8 +14,8 @@
 =========================================================================*/
 #include "Arduino.h"
 #include <limits.h>
-#include "PCF8591.h"
-#include "Sensor.h"
+#include <PCF8591.h>
+#include <Sensor.h>
 #include <Serial.h>
 #include <Wire.h>
 
@@ -44,10 +44,11 @@ byte PCF8591::read8(byte address, byte reg)
   Wire.beginTransmission(address);
   Wire.write(reg);
   Wire.endTransmission();
+
   Wire.requestFrom(address, (byte)2);
   value = Wire.read();
   value = Wire.read();
-  Wire.endTransmission();
+  
 
   return value;
 }
@@ -65,7 +66,7 @@ void PCF8591::read()
 {
   Wire.beginTransmission(PCF8591_ADDRESS);
   Wire.write(PCF8591_REGISTER_A0);
-  Wire.endTransmission();
+  Serial.println(Wire.endTransmission());
 
   Wire.requestFrom(PCF8591_ADDRESS ,8);
   
@@ -112,14 +113,15 @@ void PCF8591::getEvent(sensors_t *sens) {
   /* Borra datos anteriores */
   memset(sens, 0, sizeof(sensors_t));
   /* Lee nuevos datos. */
-    read8(PCF8591_ADDRESS,PCF8591_REGISTER_A0);
+    
     sens->pcf.t = read8(PCF8591_ADDRESS,PCF8591_REGISTER_A0);
-    read8(PCF8591_ADDRESS,PCF8591_REGISTER_A1);
+    
     sens->pcf.r = read8(PCF8591_ADDRESS,PCF8591_REGISTER_A1);
-    read8(PCF8591_ADDRESS,PCF8591_REGISTER_A2);
+    
     sens->pcf.h = read8(PCF8591_ADDRESS,PCF8591_REGISTER_A2);
-    read8(PCF8591_ADDRESS,PCF8591_REGISTER_A3);
+    
     sens->pcf.l = read8(PCF8591_ADDRESS,PCF8591_REGISTER_A3);
+
     return;
 }
 
