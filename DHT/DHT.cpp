@@ -86,7 +86,7 @@ float DHT::readHumidity(void) {
 =========================================================================*/
 float DHT::computeHeatIndex(float tempCelsius, float percentHumidity) {
   float tempFahrenheit = tempCelsius * 9 / 5 + 32;
-  return -42.379 + 
+  return (((-42.379 +
            2.04901523 * tempFahrenheit + 
           10.14333127 * percentHumidity +
           -0.22475541 * tempFahrenheit*percentHumidity +
@@ -94,7 +94,7 @@ float DHT::computeHeatIndex(float tempCelsius, float percentHumidity) {
           -0.05481717 * pow(percentHumidity, 2) + 
            0.00122874 * pow(tempFahrenheit, 2) * percentHumidity + 
            0.00085282 * tempFahrenheit*pow(percentHumidity, 2) +
-          -0.00000199 * pow(tempFahrenheit, 2) * pow(percentHumidity, 2);
+          -0.00000199 * pow(tempFahrenheit, 2) * pow(percentHumidity, 2))-32)*5/9);
 }
 
 
